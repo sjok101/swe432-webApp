@@ -1,10 +1,11 @@
 .navigation-bar{
     position: relative;
-    margin: 0 auto;
-    width:90%;
+    margin: auto;
+    width:95%;
     height: 10vh;
     border: 4px solid black;
-    min-width: 800px;
+    background-color: #28282b;
+    min-width: 1800px;
 }
 
 .a-group{
@@ -16,7 +17,14 @@
 .a-group a{
     margin: 15px;
     text-decoration: none;
-    color: black;
+    background-color: #1c1d24;
+    color: #6699cc;
+    border: 3px solid black;
+    border-top: 3px solid #575e66;
+    border-left: 3px solid #575e66;
+    padding: 5px;
+    width: 85px;
+    text-align: center;
 }
 .title{
     position: absolute;
@@ -31,8 +39,9 @@
     
     object-fit:cover;
     border: 4px solid black;
+    background-color: #28282b;
     margin:auto;
-    margin-top: 2%;
+    margin-top: 50px;
     min-width: 1800px;
     min-height: 1300px;
     padding-top: 50px;
@@ -52,7 +61,21 @@
 .dj-list th, .dj-list td{
     padding: 10px;
     border: 2px solid black;
+    
 }
+.dj-list th{
+    color: #6699cc;
+    background-color: #1c1d24;
+}
+.dj-list tr:nth-child(even){
+    color: whitesmoke;
+    background-color: #72808a;
+}
+.dj-list tr:nth-child(odd){
+    color: whitesmoke;
+    background-color: #575e66;
+}
+
 
 .dj-playlist{
     border-collapse: collapse;
@@ -61,6 +84,15 @@
 .dj-playlist th, .dj-playlist td{
     padding:10px;
     border: 2px solid black;
+}
+.dj-playlist th{
+    background-color: #1c1d24;
+}
+.dj-playlist tr:nth-child(even){
+    background-color: #72808a;
+}
+.dj-playlist tr:nth-child(odd){
+    background-color: #575e66;
 }
 
 .music-search{
@@ -72,13 +104,22 @@
     border: 2px solid black;
 
 }
+.music-search th{
+    background-color: #1c1d24;
+}
+.music-search tr:nth-child(even){
+    background-color: #72808a;
+}
+.music-search tr:nth-child(odd){
+    background-color: #575e66;
+}
 
 .Container-DJs{
     padding-right: 200px;
     padding-top: 50px;
 }
 .Container-Playlists{
-    padding-top:50px;
+    padding-top:82px;
 }
 .Container-Search{
     padding-top: 50px;
@@ -97,7 +138,7 @@
     padding: 100px;
 }
 .footer-support-link{
-    padding-left:300px;
+    padding-left:200px;
     margin-bottom: 25px;
 }
 .footer-support-link td{
@@ -113,4 +154,14 @@
 .footer-line{
     width: 1600px;
     margin-top: 200px;
+}
+.search-bar{
+    background-color: #72898f;
+}
+
+.button{
+    background-color: #1c1d24;
+    color: #6699cc;
+    width: 60px;
+    height: 25px;
 }

@@ -6,6 +6,13 @@
     <title>Producers Page</title>
     <link rel="stylesheet" href="group3_bok.css">
     <script src="group3_bok.js"></script>
+    <style>
+        body{
+            background: #1c1d24;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #6699cc;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +25,7 @@
                         <a href="null">DJs</a>
                         <a href="null">Producers</a>
                     </div>
-                    <p class="title">"Page Title"</p>
+                    <h2 class="title">Producer's Page</h2>
                 </td>
             </tr>
         </table>
@@ -154,7 +161,7 @@
                             </table>
                             <br>
                             <aside>
-                                <button id="del-from-play">Del</button>
+                                <button class="button" id="del-from-play">Del</button>
                             </aside>
                         </div>
                         <div class=Container-Search>
@@ -162,11 +169,11 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <input type="text" id="search-bar">
-                                            <input type="submit" id="search-submit">
+                                            <input class="search-bar" type="text" id="search-bar">
+                                            <input class="button" type="submit" id="search-submit">
                                         </td>
                                         <td>
-                                            <audio controls style="height: 3vh; margin-inline: 18%;">
+                                            <audio controls class="audio-box" style="height: 3vh; margin-inline: 18%;">
                                                 <source class="play-searched-song">
                                             </audio>
                                         </td>
@@ -177,7 +184,7 @@
 
                                 <thead>
                                     <tr>
-                                        <th>Song Title</th>
+                                        <th>Results</th>
                                         <th>Artist</th>
                                     </tr>
                                 </thead>
@@ -218,7 +225,7 @@
                             </table>
                             <br>
                             <aside>
-                                <button id="add-to-play">Add</button>
+                                <button class="button" id="add-to-play">Add</button>
                             </aside>
                         </div>
                     </td>
@@ -226,8 +233,8 @@
             </table>
             <br>
 
-            <hr class = footer-line>
-            <footer >
+            <hr class=footer-line>
+            <footer>
                 <table class="footer-table" style="text-align: inherit; margin: auto;">
                     <tr>
                         <td>
@@ -272,7 +279,7 @@
                                     <td>Information4</td>
                                     <td></td>
                                 </tr>
-                                
+
                             </table>
                         </td>
                     </tr>
@@ -288,10 +295,10 @@
                                         <table class="footer-connect">
                                             <tr>
 
-                                                <td><img class="connect-logo" src="./asset/e_small_logo1.png"> </td>
-                                                <td><img class="connect-logo" src="./asset/e_small_logo2.png"></td>
-                                                <td><img class="connect-logo" src="./asset/e_small_logo3.png"></td>
-                                                <td><img class="connect-logo" src="./asset/e_small_logo4.png"></td>
+                                                <td><a href="https://www.facebook.com/"><img class="connect-logo" src="./asset/e_small_logo1.png"></a></td>
+                                                <td><a href="https://www.twitter.com/"><img class="connect-logo" src="./asset/e_small_logo2.png"></a></td>
+                                                <td><a href="https://www.instagram.com/"><img class="connect-logo" src="./asset/e_small_logo3.png"></a></td>
+                                                <td><a href="https://www.youtube.com/"><img class="connect-logo" src="./asset/e_small_logo4.png"></a></td>
 
                                             </tr>
                                         </table>
