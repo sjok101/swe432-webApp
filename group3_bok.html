@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Producers Page</title>
+    <link rel="stylesheet" href="group3_bok.css">
+    <script src="group3_bok.js"></script>
+</head>
+
+<body>
+    <header>
+        <table class="navigation-bar">
+            <tr>
+                <td>
+                    <div class=a-group>
+                        <a href="null">Listeners</a>
+                        <a href="null">DJs</a>
+                        <a href="null">Producers</a>
+                    </div>
+                    <p class="title">"Page Title"</p>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <div class="form-container">
+        <form>
+            <table class="page-content">
+                <tr>
+                    <td>
+                        <div class=Container-DJs>
+
+                            <input type="date" id="DJ-Calendar">
+                            <table class="dj-list">
+                                <tr>
+                                    <th>DJ</th>
+                                    <th>Playlist</th>
+                                    <th>Time slot</th>
+                                </tr>
+                                <tr>
+                                    <td>DJ Khaled</td>
+                                    <td>Bombastic Morning</td>
+                                    <td>9:00 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>DJ Florence</td>
+                                    <td>LoFi Talk</td>
+                                    <td>10:00 AM</td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell1"></td>
+                                    <td id="dj-cell2"></td>
+                                    <td id="dj-cell3"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell4"></td>
+                                    <td id="dj-cell5"></td>
+                                    <td id="dj-cell6"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell7"></td>
+                                    <td id="dj-cell8"></td>
+                                    <td id="dj-cell9"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell10"></td>
+                                    <td id="dj-cell11"></td>
+                                    <td id="dj-cell12"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell13"></td>
+                                    <td id="dj-cell14"></td>
+                                    <td id="dj-cell15"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell16"></td>
+                                    <td id="dj-cell17"></td>
+                                    <td id="dj-cell18"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell19"></td>
+                                    <td id="dj-cell20"></td>
+                                    <td id="dj-cell21"></td>
+                                </tr>
+
+                                <tr>
+                                    <td id="dj-cell22"></td>
+                                    <td id="dj-cell23"></td>
+                                    <td id="dj-cell24"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell25"></td>
+                                    <td id="dj-cell26"></td>
+                                    <td id="dj-cell27"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell28"></td>
+                                    <td id="dj-cell29"></td>
+                                    <td id="dj-cell30"></td>
+                                </tr>
+                                <tr>
+                                    <td id="dj-cell31"></td>
+                                    <td id="dj-cell32"></td>
+                                    <td id="dj-cell33"></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=Container-Playlists>
+                            <table class="dj-playlist">
+
+                                <thead>
+                                    <tr>
+                                        <th>Song Title</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="pl-cell1"></td>
+                                        <td id="pl-cell2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell3"></td>
+                                        <td id="pl-cell4"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell5"></td>
+                                        <td id="pl-cell6"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell7"></td>
+                                        <td id="pl-cell8"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell9"></td>
+                                        <td id="pl-cell10"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell11"></td>
+                                        <td id="pl-cell12"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell13"></td>
+                                        <td id="pl-cell14"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pl-cell15"></td>
+                                        <td id="pl-cell16"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <aside>
+                                <button id="del-from-play">Del</button>
+                            </aside>
+                        </div>
+                        <div class=Container-Search>
+                            <aside>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="search-bar">
+                                            <input type="submit" id="search-submit">
+                                        </td>
+                                        <td>
+                                            <audio controls style="height: 3vh; margin-inline: 18%;">
+                                                <source class="play-searched-song">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </aside>
+                            <table class="music-search">
+
+                                <thead>
+                                    <tr>
+                                        <th>Song Title</th>
+                                        <th>Artist</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="ms-cell1"></td>
+                                        <td id="ms-cell2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell3"></td>
+                                        <td id="ms-cell4"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell5"></td>
+                                        <td id="ms-cell6"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell7"></td>
+                                        <td id="ms-cell8"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell9"></td>
+                                        <td id="ms-cell10"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell11"></td>
+                                        <td id="ms-cell12"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell13"></td>
+                                        <td id="ms-cell14"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="ms-cell15"></td>
+                                        <td id="ms-cell16"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <aside>
+                                <button id="add-to-play">Add</button>
+                            </aside>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+            <hr class = footer-line>
+            <footer >
+                <table class="footer-table" style="text-align: inherit; margin: auto;">
+                    <tr>
+                        <td>
+                            <figure class="footer-logo" style="padding-top: 10px;">
+                                <img src="./asset/logo1.png" width="280px">
+                                <figcaption style="margin-left: 60px; text-align: left;">Listen to Sadboi-101 FM!<br>
+                                    Free music, radio and <br>
+                                    podcasts about your <br>
+                                    favorite artist in RnB <br>
+                                    and lo-fi. </figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <table class="footer-extras">
+                                <thead>
+                                    <th>Explore</th>
+                                    <th>Exclusives</th>
+                                    <th>Information</th>
+                                    <th>Services</th>
+                                </thead>
+                                <tr>
+                                    <td>Producer</td>
+                                    <td>Exclusives1</td>
+                                    <td>Information1</td>
+                                    <td>Services1</td>
+                                </tr>
+                                <tr>
+                                    <td>DJ</td>
+                                    <td>Exclusives2</td>
+                                    <td>Information2</td>
+                                    <td>Services2</td>
+                                </tr>
+                                <tr>
+                                    <td>Listener</td>
+                                    <td>Exclusives3</td>
+                                    <td>Information3</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Exclusives4</td>
+                                    <td>Information4</td>
+                                    <td></td>
+                                </tr>
+                                
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table style="margin: auto;">
+                                <tr>
+                                    <td style="font-size: large; text-align: center; margin: auto;">CONNECT</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <table class="footer-connect">
+                                            <tr>
+
+                                                <td><img class="connect-logo" src="./asset/e_small_logo1.png"> </td>
+                                                <td><img class="connect-logo" src="./asset/e_small_logo2.png"></td>
+                                                <td><img class="connect-logo" src="./asset/e_small_logo3.png"></td>
+                                                <td><img class="connect-logo" src="./asset/e_small_logo4.png"></td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; margin: auto;">© 2023 sadboi 101-FM</td>
+                        <td>
+                            <table class="footer-support-link">
+                                <tr>
+                                    <td>Help</td>
+                                    <td>|</td>
+                                    <td>Privacy Policy</td>
+                                    <td>|</td>
+                                    <td>Terms of Use</td>
+                                    <td>|</td>
+                                    <td>Mission</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </footer>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
