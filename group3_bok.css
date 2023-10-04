@@ -154,6 +154,7 @@
 .footer-line{
     width: 1600px;
     margin-top: 200px;
+    border: 1px solid #72898f;
 }
 .search-bar{
     background-color: #72898f;
