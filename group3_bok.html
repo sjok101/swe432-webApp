@@ -20,14 +20,26 @@
             <tr>
                 <td>
                     <div class=a-group>
-                        <a href="./group3_bok.html" onclick="alert('Listener')">Listeners</a>
-                        <a href="./group3_bok.html" onclick="alert('DJ')">DJs</a>
-                        <a href="./group3_bok.html" onclick="alert('Producer')">Producers</a>
+                        <a href="./group3_bok.html" onclick="alert('Listeners')" onmouseover="highlightBackground(this)" onmouseout="resetBackground(this)">Listeners</a>
+                        <a href="./group3_bok.html" onclick="alert('DJs')" onmouseover="highlightBackground(this)" onmouseout="resetBackground(this)">DJs</a>
+                        <a href="./group3_bok.html" onclick="alert('Producer')" onmouseover="highlightBackground(this)" onmouseout="resetBackground(this)">Producers</a>
                     </div>
                     <h2 class="title">Producer's Page</h2>
                 </td>
             </tr>
         </table>
+        <script>
+            
+            function highlightBackground(element) {
+        element.style.backgroundColor = "darkblue";
+    }
+
+    function resetBackground(element) {
+        element.style.backgroundColor = "";
+    }
+                
+            
+        </script>
     </nav>
     <div class="form-container">
         <form>
@@ -230,7 +242,9 @@
             </footer>
         </form>
     </div>
-    <script src="group3_bok.js"></script>
+    <script src="group3_bok.js">
+
+    </script>
 
 
 </body>

@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM LOADED")
+})
+/////////////////////////////////////////////////////////////////////////////
+//                   Listener Approach (Futher used below)                 //
+/////////////////////////////////////////////////////////////////////////////
+alert("Make sure to select Oct 19 2023 as a date!")
 const djList = document.querySelector(".dj-list")
 const djPlayList = document.querySelector(".dj-playlist")
 const musicSearch = document.querySelector(".music-search")
@@ -16,8 +23,9 @@ musicSearch.addEventListener("click", e => {
 })
 
 
-
-
+/////////////////////////////////////////////////////////////////////////////
+//                            Creation of custom objects                   //
+/////////////////////////////////////////////////////////////////////////////
 var staticSongsData = [
     { 'name': 'Electric Dreams', 'artist': 'Eleanor Smith', 'duration': '2:30' },
     { 'name': 'Midnight Serenade', 'artist': 'Daniel Ramirez', 'duration': '2:45' },
@@ -55,7 +63,9 @@ var staticSongsData = [
     { 'name': 'Sapphire Skies', 'artist': 'Noah White', 'duration': '3:00' },
     { 'name': 'Aurora Borealis', 'artist': 'Sophia Martin', 'duration': '2:30' }
 ]
-
+staticSongsData[0].name="Lightning Visions"
+staticSongsData[0].new="True"
+console.log(staticSongsData[0])
 
 var staticDJ = [
     {
@@ -116,14 +126,24 @@ var staticDJ = [
     }
 ]
 
+
+
+/////////////////////////////////////////////////////////////////////////////
+//               Event types(input, keyup, click, )                        //
+//               Form validation (buildMusicTable(), buildEmptyTableDJ)    //
+//               Modifying DOM (returnList[], .innerHTML, .style)          //
+//               Properties(returnList, newSongsData, filteredTable)       //
+//Window Object(.querySelector, .createElement, .getElementsByTagName, dom)//
+/////////////////////////////////////////////////////////////////////////////
+
 //calendar event listener, listens for input
 var dateField = document.querySelector('#DJ-Calendar');
 dateField.addEventListener('input',
     function () {
         var date = dateField.value;
         //console.log(date);
-        var filteredTable = filterDates(staticDJ, date);
-        buildEmptyTableDJ(filteredTable, djList, 15);
+        // var filteredTable = filterDates(staticDJ, date);
+        buildEmptyTableDJ(filterDates(staticDJ, date), djList, 15);
 
     })
 //build table first to initialize it upon dom load
@@ -406,6 +426,7 @@ function buildMusicTable(data, tableList) {
         //Add the row to the table.
         table.appendChild(row);
     }
+    //form validation check if no result
     if (data.length == 0) {
         var row = document.createElement("tr");
         row.innerHTML = `<td>No Results</td>
