@@ -107,12 +107,6 @@
 .music-search th{
     background-color: #1c1d24;
 }
-.music-search tr:nth-child(even){
-    background-color: #72808a;
-}
-.music-search tr:nth-child(odd){
-    background-color: #575e66;
-}
 
 .Container-DJs{
     padding-right: 200px;
@@ -158,6 +152,7 @@
 }
 .search-bar{
     background-color: #72898f;
+    width: 375px;
 }
 
 .button{
@@ -165,4 +160,9 @@
     color: #6699cc;
     width: 60px;
     height: 25px;
+}
+
+.selected-row{
+    background-color: blue;
+    color: white;
 }

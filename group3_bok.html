@@ -4,32 +4,31 @@
 <head>
     <meta charset="utf-8">
     <title>Producers Page</title>
-    <link rel="stylesheet" href="group3_bok.css">
-    <script src="group3_bok.js"></script>
+    <link rel="stylesheet" type="text/css" href="group3_bok.css">
     <style>
-        body{
+        body {
             background: #1c1d24;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-family: 'Trebuchet MS';
             color: #6699cc;
         }
     </style>
 </head>
 
 <body>
-    <header>
+    <nav>
         <table class="navigation-bar">
             <tr>
                 <td>
                     <div class=a-group>
-                        <a href="null">Listeners</a>
-                        <a href="null">DJs</a>
-                        <a href="null">Producers</a>
+                        <a href="/swe432/group3_bok.html" onclick="alert('Listener')">Listeners</a>
+                        <a href="/swe432/group3_bok.html" onclick="alert('DJ')">DJs</a>
+                        <a href="/swe432/group3_bok.html" onclick="alert('Producer')">Producers</a>
                     </div>
                     <h2 class="title">Producer's Page</h2>
                 </td>
             </tr>
         </table>
-    </header>
+    </nav>
     <div class="form-container">
         <form>
             <table class="page-content">
@@ -37,80 +36,13 @@
                     <td>
                         <div class=Container-DJs>
 
-                            <input type="date" id="DJ-Calendar">
+                            <input type="date" id="DJ-Calendar" name="date">
                             <table class="dj-list">
                                 <tr>
                                     <th>DJ</th>
                                     <th>Playlist</th>
                                     <th>Time slot</th>
                                 </tr>
-                                <tr>
-                                    <td>DJ Khaled</td>
-                                    <td>Bombastic Morning</td>
-                                    <td>9:00 AM</td>
-                                </tr>
-                                <tr>
-                                    <td>DJ Florence</td>
-                                    <td>LoFi Talk</td>
-                                    <td>10:00 AM</td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell1"></td>
-                                    <td id="dj-cell2"></td>
-                                    <td id="dj-cell3"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell4"></td>
-                                    <td id="dj-cell5"></td>
-                                    <td id="dj-cell6"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell7"></td>
-                                    <td id="dj-cell8"></td>
-                                    <td id="dj-cell9"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell10"></td>
-                                    <td id="dj-cell11"></td>
-                                    <td id="dj-cell12"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell13"></td>
-                                    <td id="dj-cell14"></td>
-                                    <td id="dj-cell15"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell16"></td>
-                                    <td id="dj-cell17"></td>
-                                    <td id="dj-cell18"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell19"></td>
-                                    <td id="dj-cell20"></td>
-                                    <td id="dj-cell21"></td>
-                                </tr>
-
-                                <tr>
-                                    <td id="dj-cell22"></td>
-                                    <td id="dj-cell23"></td>
-                                    <td id="dj-cell24"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell25"></td>
-                                    <td id="dj-cell26"></td>
-                                    <td id="dj-cell27"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell28"></td>
-                                    <td id="dj-cell29"></td>
-                                    <td id="dj-cell30"></td>
-                                </tr>
-                                <tr>
-                                    <td id="dj-cell31"></td>
-                                    <td id="dj-cell32"></td>
-                                    <td id="dj-cell33"></td>
-                                </tr>
-
                             </table>
                         </div>
                     </td>
@@ -170,7 +102,6 @@
                                     <tr>
                                         <td>
                                             <input class="search-bar" type="text" id="search-bar">
-                                            <input class="button" type="submit" id="search-submit">
                                         </td>
                                         <td>
                                             <audio controls class="audio-box" style="height: 3vh; margin-inline: 18%;">
@@ -180,49 +111,16 @@
                                     </tr>
                                 </table>
                             </aside>
-                            <table class="music-search">
-
-                                <thead>
-                                    <tr>
-                                        <th>Results</th>
-                                        <th>Artist</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td id="ms-cell1"></td>
-                                        <td id="ms-cell2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell3"></td>
-                                        <td id="ms-cell4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell5"></td>
-                                        <td id="ms-cell6"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell7"></td>
-                                        <td id="ms-cell8"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell9"></td>
-                                        <td id="ms-cell10"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell11"></td>
-                                        <td id="ms-cell12"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell13"></td>
-                                        <td id="ms-cell14"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="ms-cell15"></td>
-                                        <td id="ms-cell16"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="search-container">
+                                <table class="music-search">
+                                    <thead>
+                                        <tr>
+                                            <th>Results</th>
+                                            <th>Artist</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                             <br>
                             <aside>
                                 <button class="button" id="add-to-play">Add</button>
@@ -295,10 +193,14 @@
                                         <table class="footer-connect">
                                             <tr>
 
-                                                <td><a href="https://www.facebook.com/"><img class="connect-logo" src="./asset/e_small_logo1.png"></a></td>
-                                                <td><a href="https://www.twitter.com/"><img class="connect-logo" src="./asset/e_small_logo2.png"></a></td>
-                                                <td><a href="https://www.instagram.com/"><img class="connect-logo" src="./asset/e_small_logo3.png"></a></td>
-                                                <td><a href="https://www.youtube.com/"><img class="connect-logo" src="./asset/e_small_logo4.png"></a></td>
+                                                <td><a href="https://www.facebook.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo1.png"></a></td>
+                                                <td><a href="https://www.twitter.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo2.png"></a></td>
+                                                <td><a href="https://www.instagram.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo3.png"></a></td>
+                                                <td><a href="https://www.youtube.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo4.png"></a></td>
 
                                             </tr>
                                         </table>
@@ -328,6 +230,7 @@
             </footer>
         </form>
     </div>
+    <script src="group3_bok.js"></script>
 
 
 </body>
