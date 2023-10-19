@@ -1,6 +1,7 @@
 const djList = document.querySelector(".dj-list")
 const djPlayList = document.querySelector(".dj-playlist")
 const musicSearch = document.querySelector(".music-search")
+var gString;
 
 djList.addEventListener("click", e => {
     console.log(e)
@@ -54,6 +55,7 @@ var staticSongsData = [
     { 'name': 'Sapphire Skies', 'artist': 'Noah White', 'duration': '3:00' },
     { 'name': 'Aurora Borealis', 'artist': 'Sophia Martin', 'duration': '2:30' }
 ]
+
 
 var staticDJ = [
     {
@@ -184,19 +186,54 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
                 //add will add a highlighted song from search list and add it to newSongsData
                 var addButton = document.querySelector("#add-to-play");
                 addButton.addEventListener("click", function () {
-                    console.log("Yay!")
+                    console.log("Yay!");
+                    var highlightedSongIndex = getHighlightedIndex(musicSearch);
+                    if (highlightedSongIndex !== -1) {
+                        var highlightedSong = musicSearch.getElementsByTagName('tr')[highlightedSongIndex];
+                        // console.log(highlightedSong)
+                        var songData = getSongDataFromRow(highlightedSong);
+                        newSongsData.push(songData);
+                        // Rebuild the DJ playlist table with the updated data
+                        buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
+                    }
+
                 })
-                //del will delete a highlighted song from the playlist
                 
+                //del will delete a highlighted song from the playlist
+                var delButton = document.querySelector('#del-from-play');
+                delButton.addEventListener("click", function (){
+                    console.log("Nay!")
+                    var highlightedSongIndex = getHighlightedIndex(djPlayList)
+                    console.log(highlightedSongIndex)
+                    if(highlightedSongIndex !== -1){
+                        var highlightedSong = djPlayList.getElementsByTagName('tr')[highlightedSongIndex];
+                        var title = highlightedSong.getElementsByTagName('td')[0].textContent
+                        // if(staticDJ.songs.includes(title))
+                        newSongsData = newSongsData.filter(function(song){
+                            console.log(song.name)
+                            return song.name + " by " + song.artist !== title
+                        })                        
+                        // console.log(newSongsData)
+                        buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
+                    }
+
+                })
 
 
                 buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
+
             })
         }
         else {
-            row.innerHTML = `<td></td>
+            if (i == 0) {
+                row.innerHTML = `<td></td>
+            <td>Please choose a date</td>
+            <td></td>`;
+            } else {
+                row.innerHTML = `<td></td>
             <td></td>
             <td></td>`;
+            }
 
         }
         if (i % 2 == 0) {
@@ -214,6 +251,32 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
 
 }
 
+function getSongDataFromRow(target) {
+    var targetTD = target.getElementsByTagName("td");
+    for (var i = 0; i < staticSongsData.length; i++) {
+        if (staticSongsData[i].name.includes(targetTD[0].textContent)) {
+            console.log(staticSongsData[i].name)
+            return staticSongsData[i]
+        }
+    }
+
+}
+
+function getHighlightedIndex(tableList) {
+    var rows = tableList.getElementsByTagName('tr');
+    for (var i = 0; i < rows.length; i++) {
+        var style = rows[i].getAttribute('style');
+
+        //console.log(rows[i])
+        if (style && style.toLowerCase().includes('background-color: blue')) {
+            return i;
+        }
+    }
+
+
+    return -1
+}
+
 
 function buildEmptyTablePlaylist(data, tableList, amountRow) {
     var table = tableList;
@@ -221,7 +284,7 @@ function buildEmptyTablePlaylist(data, tableList, amountRow) {
                         <th>Title</th>
                         <th>Time Length</th>
                        </tr>`;
-    // deleteRow(tableList)
+
     for (var i = 0; i < amountRow; i++) {
         let row = document.createElement("tr");
         console.log("DEBUG: " + data)
@@ -240,21 +303,11 @@ function buildEmptyTablePlaylist(data, tableList, amountRow) {
             row.style.backgroundColor = "#575e66";
         }
         row.style.color = "Whitesmoke" //font color
-
         highlightRowPlaylist(row, tableList)
 
         table.appendChild(row);
 
     }
-}
-
-function deleteRow(tableList) {
-    var deleteButton = document.querySelector("#del-from-play");
-    deleteButton.addEventListener("click", function () {
-        console.log("Yay!")
-        var playCells = tableList.getElementsByTagName("td");
-        console.log(playCells[0].textContent)
-    })
 }
 
 
@@ -279,13 +332,13 @@ function highlightRowPlaylist(row, tableList) {
         this.style.backgroundColor = "Blue";
         this.style.color = "whitesmoke";
 
+
+
         //Return data
         cells = this.getElementsByTagName("td");
+        gString = cells[0].textContent + " " + cells[1].textContent;
+        console.log("Highlight " + gString);
 
-        console.log("Highlight " + cells[0].textContent + " " + cells[1].textContent);
-
-
-       
     })
 
 
@@ -315,7 +368,7 @@ function highlightRow(row, tableList) {
         //Return data
         var cells = this.getElementsByTagName("td");
 
-        console.log("Highlight " + cells[0].textContent + " " + cells[1].textContent);
+        //console.log("Highlight " + cells[0].textContent + " " + cells[1].textContent);
     })
 
 
@@ -351,6 +404,14 @@ function buildMusicTable(data, tableList) {
         highlightRow(row, tableList);
 
         //Add the row to the table.
+        table.appendChild(row);
+    }
+    if (data.length == 0) {
+        var row = document.createElement("tr");
+        row.innerHTML = `<td>No Results</td>
+                        <td></td>`;
+        row.style.backgroundColor = "#72808a";
+        row.style.color = "Whitesmoke" //font color
         table.appendChild(row);
     }
 
