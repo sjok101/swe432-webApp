@@ -20,9 +20,9 @@
             <tr>
                 <td>
                     <div class=a-group>
-                        <a href="/swe432/group3_bok.html" onclick="alert('Listener')">Listeners</a>
-                        <a href="/swe432/group3_bok.html" onclick="alert('DJ')">DJs</a>
-                        <a href="/swe432/group3_bok.html" onclick="alert('Producer')">Producers</a>
+                        <a href="./group3_bok.html" onclick="alert('Listener')">Listeners</a>
+                        <a href="./group3_bok.html" onclick="alert('DJ')">DJs</a>
+                        <a href="./group3_bok.html" onclick="alert('Producer')">Producers</a>
                     </div>
                     <h2 class="title">Producer's Page</h2>
                 </td>
@@ -93,7 +93,7 @@
                             </table>
                             <br>
                             <aside>
-                                <button class="button" id="del-from-play">Del</button>
+                                <button class="button" type="button" id="del-from-play" onclick="deleteRow(tableList)">Del</button>
                             </aside>
                         </div>
                         <div class=Container-Search>
@@ -123,7 +123,7 @@
                             </div>
                             <br>
                             <aside>
-                                <button class="button" id="add-to-play">Add</button>
+                                <button class="button" type="button" id="add-to-play">Add</button>
                             </aside>
                         </div>
                     </td>

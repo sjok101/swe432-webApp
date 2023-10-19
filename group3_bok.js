@@ -119,7 +119,7 @@ var dateField = document.querySelector('#DJ-Calendar');
 dateField.addEventListener('input',
     function () {
         var date = dateField.value;
-        console.log(date);
+        //console.log(date);
         var filteredTable = filterDates(staticDJ, date);
         buildEmptyTableDJ(filteredTable, djList, 15);
 
@@ -128,8 +128,8 @@ dateField.addEventListener('input',
 buildEmptyTableDJ([], djList, 15);
 
 //debug
-console.log(`${dateField.value}T00:00`)
-console.log(staticDJ[1].date)
+//console.log(`${dateField.value}T00:00`)
+//console.log(staticDJ[1].date)
 
 //filters the dates and creates and returns a new list with it
 function filterDates(data, value) {
@@ -138,7 +138,7 @@ function filterDates(data, value) {
         let date = data[i].date
         if (date.includes(value)) {
             returnList.push(data[i])
-            console.log(data[i].name)
+            //console.log(data[i].name)
         }
     }
     return returnList;
@@ -157,15 +157,41 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
     for (var i = 0; i < amountRow; i++) {
 
         let row = document.createElement("tr");
+        //if data is present, build dj table
         if (data[i] != null) {
             row.innerHTML = `<td>${data[i].name}</td>
                         <td>${data[i].playlist}</td>
                         <td>${data[i].time}</td>`;
-                        row.addEventListener("click", function(){
-                            var cells = this.getElementsByTagName("td");
 
-                            console.log(cells[0].textContent)
-                        })
+            //add event listener to each row that is not null, and when clicked, build playlist table
+            row.addEventListener("click", function () {
+                var cells = this.getElementsByTagName("td");
+                var content = cells[0].textContent;
+                var index = -1;
+
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].name === content) {
+                        index = i;
+                        break;
+                    }
+                }
+
+                console.log(index)
+                console.log(data[index].songs)
+                let newSongsData = data[index].songs;
+                //add 2 new event listeners for add and del
+
+                //add will add a highlighted song from search list and add it to newSongsData
+                var addButton = document.querySelector("#add-to-play");
+                addButton.addEventListener("click", function () {
+                    console.log("Yay!")
+                })
+                //del will delete a highlighted song from the playlist
+                
+
+
+                buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
+            })
         }
         else {
             row.innerHTML = `<td></td>
@@ -183,18 +209,91 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
 
         highlightRow(row, tableList)
 
-
         table.appendChild(row);
     }
+
+}
+
+
+function buildEmptyTablePlaylist(data, tableList, amountRow) {
+    var table = tableList;
+    table.innerHTML = `<tr>
+                        <th>Title</th>
+                        <th>Time Length</th>
+                       </tr>`;
+    // deleteRow(tableList)
+    for (var i = 0; i < amountRow; i++) {
+        let row = document.createElement("tr");
+        console.log("DEBUG: " + data)
+        if (data[i] != null) {
+            row.innerHTML = `<td>${data[i].name + " by " + data[i].artist}</td>
+                        <td>${data[i].duration}</td>`;
+        } else {
+            row.innerHTML = `<td></td>
+                            <td></td>`;
+
+        }
+        if (i % 2 == 0) {
+            row.style.backgroundColor = "#72808a";
+        }
+        else {
+            row.style.backgroundColor = "#575e66";
+        }
+        row.style.color = "Whitesmoke" //font color
+
+        highlightRowPlaylist(row, tableList)
+
+        table.appendChild(row);
+
+    }
+}
+
+function deleteRow(tableList) {
+    var deleteButton = document.querySelector("#del-from-play");
+    deleteButton.addEventListener("click", function () {
+        console.log("Yay!")
+        var playCells = tableList.getElementsByTagName("td");
+        console.log(playCells[0].textContent)
+    })
+}
+
+
+function highlightRowPlaylist(row, tableList) {
+
+    var cells
+    row.addEventListener("click", function () {
+        var allRows = tableList.getElementsByTagName("tr");
+        //Idea is to set default color, and then highlight at the end
+        for (var j = 0; j < allRows.length; j++) {
+            if (j % 2 == 0) {
+                allRows[j].style.backgroundColor = "#575e66";
+            }
+            else {
+                allRows[j].style.backgroundColor = "#72808a";
+            }
+
+
+        }
+
+        //Highlight *this* row
+        this.style.backgroundColor = "Blue";
+        this.style.color = "whitesmoke";
+
+        //Return data
+        cells = this.getElementsByTagName("td");
+
+        console.log("Highlight " + cells[0].textContent + " " + cells[1].textContent);
+
+
+       
+    })
 
 
 }
 
 
-
-
-
 function highlightRow(row, tableList) {
+
     row.addEventListener("click", function () {
         var allRows = tableList.getElementsByTagName("tr");
         //Idea is to set default color, and then highlight at the end
@@ -215,8 +314,11 @@ function highlightRow(row, tableList) {
 
         //Return data
         var cells = this.getElementsByTagName("td");
+
         console.log("Highlight " + cells[0].textContent + " " + cells[1].textContent);
     })
+
+
 }
 
 //This function will build a scrollable table according to its data and table structure
@@ -247,6 +349,7 @@ function buildMusicTable(data, tableList) {
 
         //Add event listener for clicks to highlight row
         highlightRow(row, tableList);
+
         //Add the row to the table.
         table.appendChild(row);
     }
