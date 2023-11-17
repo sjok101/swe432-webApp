@@ -80,6 +80,7 @@
 .dj-playlist{
     border-collapse: collapse;
     width: 800px;
+    height: 300px;
 }
 .dj-playlist th, .dj-playlist td{
     padding:10px;

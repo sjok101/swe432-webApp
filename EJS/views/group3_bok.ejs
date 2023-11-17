@@ -20,25 +20,28 @@
             <tr>
                 <td>
                     <div class=a-group>
-                        <a href="./group3_bok.html" onclick="alert('Listeners')" onmouseover="highlightBackground(this)" onmouseout="resetBackground(this)">Listeners</a>
-                        <a href="./group3_bok.html" onclick="alert('DJs')" onmouseover="highlightBackground(this)" onmouseout="resetBackground(this)">DJs</a>
-                        <a href="./group3_bok.html" onclick="alert('Producer')" onmouseover="highlightBackground(this)" onmouseout="resetBackground(this)">Producers</a>
+                        <a href="./group3_bok.html" onclick="alert('Listeners')" onmouseover="highlightBackground(this)"
+                            onmouseout="resetBackground(this)">Listeners</a>
+                        <a href="./group3_bok.html" onclick="alert('DJs')" onmouseover="highlightBackground(this)"
+                            onmouseout="resetBackground(this)">DJs</a>
+                        <a href="./group3_bok.html" onclick="alert('Producer')" onmouseover="highlightBackground(this)"
+                            onmouseout="resetBackground(this)">Producers</a>
                     </div>
                     <h2 class="title">Producer's Page</h2>
                 </td>
             </tr>
         </table>
         <script>
-            
-            function highlightBackground(element) {
-        element.style.backgroundColor = "darkblue";
-    }
 
-    function resetBackground(element) {
-        element.style.backgroundColor = "";
-    }
-                
-            
+            function highlightBackground(element) {
+                element.style.backgroundColor = "darkblue";
+            }
+
+            function resetBackground(element) {
+                element.style.backgroundColor = "";
+            }
+
+
         </script>
     </nav>
     <div class="form-container">
@@ -60,54 +63,22 @@
                     </td>
                     <td>
                         <div class=Container-Playlists>
-                            <table class="dj-playlist">
+                            <div class = dj-container>
+                                <table class="dj-playlist">
 
-                                <thead>
-                                    <tr>
-                                        <th>Song Title</th>
-                                        <th>Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td id="pl-cell1"></td>
-                                        <td id="pl-cell2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell3"></td>
-                                        <td id="pl-cell4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell5"></td>
-                                        <td id="pl-cell6"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell7"></td>
-                                        <td id="pl-cell8"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell9"></td>
-                                        <td id="pl-cell10"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell11"></td>
-                                        <td id="pl-cell12"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell13"></td>
-                                        <td id="pl-cell14"></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="pl-cell15"></td>
-                                        <td id="pl-cell16"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br>
-                            <aside>
-                                <button class="button" type="button" id="del-from-play">Del</button>
-                            </aside>
+                                    <thead>
+                                        <tr>
+                                         <th>Song Title</th>
+                                         <th>Time</th>
+                                        </tr>
+                                     </thead>
+                                </table>
+                            </div>
                         </div>
+                        <br>
+                        <aside>
+                            <button class="button" type="button" id="del-from-play">Del</button>
+                        </aside>
                         <div class=Container-Search>
                             <aside>
                                 <table>
@@ -161,31 +132,59 @@
                             <table class="footer-extras">
                                 <thead>
                                     <% data.fHeader.forEach(result=>{ %>
-                                        <th><%= result %> </th>
-                                    <% }) %>
+                                        <th>
+                                            <%= result %>
+                                        </th>
+                                        <% }) %>
                                 </thead>
                                 <tr>
-                                    <td><%= data.fExplore[0] %></td>
-                                    <td><%= data.fExclusive[0] %></td>
-                                    <td><%= data.fInfo[0] %></td>
-                                    <td><%= data.fServ[0] %></td>
+                                    <td>
+                                        <%= data.fExplore[0] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fExclusive[0] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fInfo[0] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fServ[0] %>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><%= data.fExplore[1] %></td>
-                                    <td><%= data.fExclusive[1] %></td>
-                                    <td><%= data.fInfo[1] %></td>
-                                    <td><%= data.fServ[1] %></td>
+                                    <td>
+                                        <%= data.fExplore[1] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fExclusive[1] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fInfo[1] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fServ[1] %>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><%= data.fExplore[2] %></td>
-                                    <td><%= data.fExclusive[2] %></td>
-                                    <td><%= data.fInfo[2] %></td>
+                                    <td>
+                                        <%= data.fExplore[2] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fExclusive[2] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fInfo[2] %>
+                                    </td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><%= data.fExclusive[3] %></td>
-                                    <td><%= data.fInfo[3] %></td>
+                                    <td>
+                                        <%= data.fExclusive[3] %>
+                                    </td>
+                                    <td>
+                                        <%= data.fInfo[3] %>
+                                    </td>
                                     <td></td>
                                 </tr>
 
@@ -226,13 +225,21 @@
                         <td>
                             <table class="footer-support-link">
                                 <tr>
-                                    <td><%= data.fExtra[0] %></td>
+                                    <td>
+                                        <%= data.fExtra[0] %>
+                                    </td>
                                     <td>|</td>
-                                    <td><%= data.fExtra[1] %></td>
+                                    <td>
+                                        <%= data.fExtra[1] %>
+                                    </td>
                                     <td>|</td>
-                                    <td><%= data.fExtra[2] %></td>
+                                    <td>
+                                        <%= data.fExtra[2] %>
+                                    </td>
                                     <td>|</td>
-                                    <td><%= data.fExtra[3] %></td>
+                                    <td>
+                                        <%= data.fExtra[3] %>
+                                    </td>
                                 </tr>
                             </table>
                         </td>
@@ -241,10 +248,10 @@
             </footer>
         </form>
     </div>
-    <script src = "/js/group3_bok.js" type="text/javascript">
-document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM LOADED")
-})
+    <script src="/js/group3_bok.js" type="text/javascript">
+        document.addEventListener("DOMContentLoaded", (event) => {
+            console.log("DOM LOADED")
+        })
 
     </script>
 

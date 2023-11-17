@@ -1,6 +1,45 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", async () => {
     console.log("DOM LOADED")
-})
+    try{
+        const response = await fetchData('/getSongs');
+        //const data = await response.json();
+        uploadSongData(response);
+
+        const response2 = await fetchData('/getDJs');
+        //const data2 = await response2.json();
+        uploadDJData(response2);
+        mainBuild();
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+
+async function fetchData(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch data from ${url}. Status: ${response.status}`);
+    }
+    console.log(response);
+    return response.json();
+}
+
+
+var staticSongsData
+var staticDJ
+
+function uploadSongData(data){
+    console.log(data)
+    staticSongsData = data;
+}
+
+function uploadDJData(data){
+    console.log(data)
+    staticDJ = data;
+}
+
+
+function mainBuild(){
 /////////////////////////////////////////////////////////////////////////////
 //                   Listener Approach (Futher used below)                 //
 /////////////////////////////////////////////////////////////////////////////
@@ -26,111 +65,6 @@ musicSearch.addEventListener("click", e => {
 
 
 /////////////////////////////////////////////////////////////////////////////
-//                            Creation of custom objects                   //
-/////////////////////////////////////////////////////////////////////////////
-var staticSongsData = [
-    { 'name': 'Electric Dreams', 'artist': 'Eleanor Smith', 'duration': '2:30' },
-    { 'name': 'Midnight Serenade', 'artist': 'Daniel Ramirez', 'duration': '2:45' },
-    { 'name': 'Crystal Clear', 'artist': 'Olivia Anderson', 'duration': '3:00' },
-    { 'name': 'Lost in the Echo', 'artist': 'Michael Turner', 'duration': '2:45' },
-    { 'name': 'Summer Breeze', 'artist': 'Sophia Johnson', 'duration': '2:30' },
-    { 'name': 'Whispers in the Wind', 'artist': 'Liam Martinez', 'duration': '2:45' },
-    { 'name': 'Infinite Love', 'artist': 'Ava White', 'duration': '3:00' },
-    { 'name': 'Moonlight Sonata', 'artist': 'Gabriel Lee', 'duration': '2:30' },
-    { 'name': 'Echoes of the Past', 'artist': 'Isabella Hall', 'duration': '2:45' },
-    { 'name': 'Rhythm of the Heart', 'artist': 'Jacob Davis', 'duration': '3:00' },
-    { 'name': 'Dreamland', 'artist': 'Emily Robinson', 'duration': '2:30' },
-    { 'name': 'Rainy Day Blues', 'artist': 'Benjamin Adams', 'duration': '2:45' },
-    { 'name': 'Golden Sunshine', 'artist': 'Zoe Clark', 'duration': '3:00' },
-    { 'name': 'Starry Nights', 'artist': 'Nathan Wright', 'duration': '2:30' },
-    { 'name': 'Sunset Dreams', 'artist': 'Grace Harris', 'duration': '2:45' },
-    { 'name': 'Dancing in the Rain', 'artist': 'William Foster', 'duration': '3:00' },
-    { 'name': 'Ocean Waves', 'artist': 'Aria Turner', 'duration': '2:30' },
-    { 'name': 'Eternal Flame', 'artist': 'Ethan Brown', 'duration': '2:45' },
-    { 'name': 'Harmonys Embrace', 'artist': 'Luna Rodriguez', 'duration': '3:00' },
-    { 'name': 'Mystic Journey', 'artist': 'David Hall', 'duration': '2:30' },
-    { 'name': 'Secret Garden', 'artist': 'Chloe Lewis', 'duration': '2:45' },
-    { 'name': 'Urban Groove', 'artist': 'Mason Smith', 'duration': '3:00' },
-    { 'name': 'Heavenly Bliss', 'artist': 'Sophie Adams', 'duration': '2:30' },
-    { 'name': 'Whispers of Time', 'artist': 'Noah Anderson', 'duration': '2:45' },
-    { 'name': 'Silent Nightfall', 'artist': 'Avery Martin', 'duration': '3:00' },
-    { 'name': 'Summer Melodies', 'artist': 'Emma Wilson', 'duration': '2:30' },
-    { 'name': 'Autumn Leaves', 'artist': 'Logan Martinez', 'duration': '2:45' },
-    { 'name': 'Mystical Waters', 'artist': 'Lily Johnson', 'duration': '3:00' },
-    { 'name': 'Serendipity', 'artist': 'Samuel Turner', 'duration': '2:30' },
-    { 'name': 'Silver Lining', 'artist': 'Ella Davis', 'duration': '2:45' },
-    { 'name': 'Celestial Echo', 'artist': 'Daniel Turner', 'duration': '3:00' },
-    { 'name': 'Whispering Pines', 'artist': 'Aiden Foster', 'duration': '2:30' },
-    { 'name': 'Reflections', 'artist': 'Aria Garcia', 'duration': '2:45' },
-    { 'name': 'Sapphire Skies', 'artist': 'Noah White', 'duration': '3:00' },
-    { 'name': 'Aurora Borealis', 'artist': 'Sophia Martin', 'duration': '2:30' }
-]
-staticSongsData[0].name="Lightning Visions"
-staticSongsData[0].new="True"
-console.log(staticSongsData[0])
-
-var staticDJ = [
-    {
-        'name': 'DJ GrooveFusion',
-        'playlist': 'Funky Mix',
-        'time': '12:00',
-        'date': '2023-10-19',
-        'songs': [
-            { 'name': 'Electric Dreams', 'artist': 'Eleanor Smith', 'duration': '3:15' },
-            { 'name': 'Midnight Serenade', 'artist': 'Daniel Ramirez', 'duration': '2:45' },
-            { 'name': 'Crystal Clear', 'artist': 'Olivia Anderson', 'duration': '3:00' },
-            { 'name': 'Lost in the Echo', 'artist': 'Michael Turner', 'duration': '2:30' },
-            { 'name': 'Summer Breeze', 'artist': 'Sophia Johnson', 'duration': '2:45' },
-            { 'name': 'Whispers in the Wind', 'artist': 'Liam Martinez', 'duration': '3:00' }
-        ]
-    },
-    {
-        'name': 'DJ ElectroGroove',
-        'playlist': 'Electronica Vibes',
-        'time': '15:00',
-        'date': '2023-10-19',
-        'songs': [
-            { 'name': 'Infinite Love', 'artist': 'Ava White', 'duration': '2:30' },
-            { 'name': 'Moonlight Sonata', 'artist': 'Gabriel Lee', 'duration': '2:45' },
-            { 'name': 'Echoes of the Past', 'artist': 'Isabella Hall', 'duration': '3:00' },
-            { 'name': 'Rhythm of the Heart', 'artist': 'Jacob Davis', 'duration': '2:30' },
-            { 'name': 'Dreamland', 'artist': 'Emily Robinson', 'duration': '2:45' },
-            { 'name': 'Rainy Day Blues', 'artist': 'Benjamin Adams', 'duration': '3:00' }
-        ]
-    },
-    {
-        'name': 'DJ ChillZone',
-        'playlist': 'Relaxing Grooves',
-        'time': '18:00',
-        'date': '2023-10-19',
-        'songs': [
-            { 'name': 'Golden Sunshine', 'artist': 'Zoe Clark', 'duration': '2:30' },
-            { 'name': 'Starry Nights', 'artist': 'Nathan Wright', 'duration': '2:45' },
-            { 'name': 'Sunset Dreams', 'artist': 'Grace Harris', 'duration': '3:00' },
-            { 'name': 'Dancing in the Rain', 'artist': 'William Foster', 'duration': '2:30' },
-            { 'name': 'Ocean Waves', 'artist': 'Aria Turner', 'duration': '2:45' },
-            { 'name': 'Eternal Flame', 'artist': 'Ethan Brown', 'duration': '3:00' }
-        ]
-    },
-    {
-        'name': 'DJ TranquilBeats',
-        'playlist': 'Calm Melodies',
-        'time': '21:00',
-        'date': '2023-10-19',
-        'songs': [
-            { 'name': 'Harmonys Embrace', 'artist': 'Luna Rodriguez', 'duration': '2:30' },
-            { 'name': 'Mystic Journey', 'artist': 'David Hall', 'duration': '2:45' },
-            { 'name': 'Secret Garden', 'artist': 'Chloe Lewis', 'duration': '3:00' },
-            { 'name': 'Urban Groove', 'artist': 'Mason Smith', 'duration': '2:30' },
-            { 'name': 'Heavenly Bliss', 'artist': 'Sophie Adams', 'duration': '2:45' },
-            { 'name': 'Whispers of Time', 'artist': 'Noah Anderson', 'duration': '3:00' }
-        ]
-    }
-]
-
-
-
-/////////////////////////////////////////////////////////////////////////////
 //               Event types(input, keyup, click, )                        //
 //               Form validation (buildMusicTable(), buildEmptyTableDJ)    //
 //               Modifying DOM (returnList[], .innerHTML, .style)          //
@@ -150,6 +84,7 @@ dateField.addEventListener('input',
     })
 //build table first to initialize it upon dom load
 buildEmptyTableDJ([], djList, 15);
+buildEmptyTablePlaylist([], djPlayList, 8);
 
 //debug
 //console.log(`${dateField.value}T00:00`)
@@ -179,7 +114,7 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
                        </tr>`;
 
     for (var i = 0; i < amountRow; i++) {
-
+        var savedTable;
         let row = document.createElement("tr");
         //if data is present, build dj table
         if (data[i] != null) {
@@ -193,9 +128,9 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
                 var content = cells[0].textContent;
                 var index = -1;
 
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].name === content) {
-                        index = i;
+                for (var j = 0; j < data.length; j++) {
+                    if (data[j].name === content) {
+                        index = j;
                         break;
                     }
                 }
@@ -204,10 +139,11 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
                 console.log(data[index].songs)
                 let newSongsData = data[index].songs;
                 //add 2 new event listeners for add and del
-
+                
                 //add will add a highlighted song from search list and add it to newSongsData
                 var addButton = document.querySelector("#add-to-play");
-                addButton.addEventListener("click", function () {
+                
+                addButton.addEventListener("click", async function () {
                     console.log("Yay!");
                     var highlightedSongIndex = getHighlightedIndex(musicSearch);
                     if (highlightedSongIndex !== -1) {
@@ -215,35 +151,109 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
                         // console.log(highlightedSong)
                         var songData = getSongDataFromRow(highlightedSong);
                         newSongsData.push(songData);
+                        console.log(songData.artist);
+                        //Add song to mongodb
+                        try {
+                            const newSong = {
+                                name: songData.name,
+                                artist: songData.artist,
+                                duration: songData.duration,
+                                djName: content,
+                            };
+                        
+                            const response = await fetch('/addSong', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(newSong),
+                            });
+                        
+                            if (response.ok) {
+                                const result = await response.json();
+                                console.log(result.message);
+                            } else {
+                                const errorResponse = await response.json().catch(() => ({})); // Catch potential JSON parsing errors
+                                console.error('Failure to add song', response.status, errorResponse);
+                            }
+                        } catch (err) {
+                            console.error(err);
+                        }
+                        
+
+                        savedTable=newSongsData
+                        //staticDJ[index].songs.push(songData);
                         // Rebuild the DJ playlist table with the updated data
-                        buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
+                        buildEmptyTablePlaylist(savedTable, djPlayList, newSongsData.length);
+                        i=amountRow;
                     }
 
                 })
                 
                 //del will delete a highlighted song from the playlist
                 var delButton = document.querySelector('#del-from-play');
-                delButton.addEventListener("click", function (){
+                delButton.addEventListener("click", async function (){
                     console.log("Nay!")
                     var highlightedSongIndex = getHighlightedIndex(djPlayList)
+                    
+                        // console.log(highlightedSong)
+                   // var songData = getSongDataFromPlaylist(highlightedSong);
+                    //console.log(highlightedSong.getElementsByTagName('tr')[0])
+                    console.log(content)
+                    var tempIndex = getIndex(staticDJ, content);
+                    console.log(tempIndex)
                     console.log(highlightedSongIndex)
+                    console.log(newSongsData[highlightedSongIndex-1]._id)
                     if(highlightedSongIndex !== -1){
                         var highlightedSong = djPlayList.getElementsByTagName('tr')[highlightedSongIndex];
                         var title = highlightedSong.getElementsByTagName('td')[0].textContent
-                        // if(staticDJ.songs.includes(title))
+                        console.log(title);
+                        //work here and implement delete by sending a schema with songdata id and djName
+                        try {
+                            const dj_and_songID = {
+                                djName: content,
+                                songID: newSongsData[highlightedSongIndex-1]._id,
+
+                            };
+
+                            const response = await fetch('/deleteSong', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(dj_and_songID)
+                            });
+
+                            if(response.ok) {
+                                const data = await response.json();
+                                console.log(data);
+                            } else {
+                                console.error('Error deleting item:', response.status, response.statusText);
+                            }
+
+                        } catch (error) {
+                            console.error('Error', error);
+                        }
+
                         newSongsData = newSongsData.filter(function(song){
                             console.log(song.name)
                             return song.name + " by " + song.artist !== title
                         })                        
+                        savedTable = newSongsData
                         // console.log(newSongsData)
-                        buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
+                        buildEmptyTablePlaylist(savedTable, djPlayList, newSongsData.length);
+                        i=amountRow;
                     }
 
                 })
 
 
-                buildEmptyTablePlaylist(newSongsData, djPlayList, 8);
-
+                if (savedTable==null){
+                buildEmptyTablePlaylist(newSongsData, djPlayList, newSongsData.length);
+                }
+                else{
+                    buildEmptyTablePlaylist(savedTable, djPlayList, newSongsData.length);
+                }
             })
         }
         else {
@@ -273,12 +283,33 @@ function buildEmptyTableDJ(data, tableList, amountRow) {
 
 }
 
+function getIndex(staticData, target){
+
+    for (var i = 0; i<staticData.length; i++){
+        if(staticData[i].name==target){
+            console.log(staticData[i].name + ' ok')
+            return i
+        }
+    }
+}
+
 function getSongDataFromRow(target) {
     var targetTD = target.getElementsByTagName("td");
     for (var i = 0; i < staticSongsData.length; i++) {
         if (staticSongsData[i].name.includes(targetTD[0].textContent)) {
             console.log(staticSongsData[i].name)
             return staticSongsData[i]
+        }
+    }
+
+}
+
+function getSongDataFromPlaylist(target) {
+    var targetTD = target.getElementsByTagName("td");
+    for (var i = 0; i < staticDJ.length; i++) {
+        if (staticDJ.song[i].name.includes(targetTD[0].textContent)) {
+            console.log(staticDJ.song[i].name)
+            return staticDJ.song[i]
         }
     }
 
@@ -472,3 +503,9 @@ searchType.addEventListener("keyup", e => {             //searches through list 
 var container = document.querySelector(".search-container");
 container.style.height = "300px";
 container.style.overflowY = "scroll";
+
+container = document.querySelector(".dj-container");
+container.style.height = "300px";
+container.style.overflowY = "scroll";
+
+}
